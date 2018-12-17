@@ -1,17 +1,8 @@
 import sys
 import os
-
-from base.read_yaml import ReadLogin
-
 sys.path.append(os.getcwd())
 
-def get_data():
-    datas = ReadLogin("data_login.yaml").read_ts()
-    arrs=[]
-    for data in datas.values():
-        arrs.append((data.get("username"),data.get("pwd")))
-    return arrs
-
+from base.read_yaml import ReadLogin
 
 
 import pytest
@@ -28,6 +19,18 @@ from base.get_driver import get_driver
         关闭页面
         
         '''
+
+
+def get_data():
+    datas = ReadLogin("data_login.yaml").read_ts()
+    arrs=[]
+    for data in datas.values():
+        arrs.append((data.get("username"),data.get("pwd")))
+    return arrs
+
+
+
+
 class TestLogin():
     def setup_class(self):
         print("set_up")
