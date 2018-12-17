@@ -1,9 +1,10 @@
 import sys
 import os
+sys.path.append(os.getcwd())
 
 from base.read_yaml import ReadLogin
 
-sys.path.append(os.getcwd())
+
 
 def get_data():
     datas = ReadLogin("data_login.yaml").read_ts()
